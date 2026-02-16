@@ -60,7 +60,7 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-                <dependency> 
+                <dependency> <!--aqui agrego las dependecias de la presentacion semana 2-->
                     <groupId>org.webjars</groupId>
                     <artifactId>bootstrap</artifactId>
                     <version>5.3.7</version>
@@ -84,8 +84,8 @@
                     <groupId>org.webjars</groupId>
                     <artifactId>webjars-locator</artifactId>
                     <version>0.52</version>
-                </dependency> 
-                 <dependency>
+                </dependency> <!--aqui termina lo de presetnacion 2-->
+                 <dependency><!--aquí empieza lo de la presentación 3-->
                     <groupId>com.mysql</groupId>
                     <artifactId>mysql-connector-j</artifactId>
                     <scope>runtime</scope>
@@ -93,28 +93,27 @@
                 <dependency> 
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-data-jpa</artifactId>
-                </dependency> 
-                <dependency> 
+                </dependency> <!--Aquí termina lo de la presentación 3-->
+                <dependency> <!--Tuve que poner esta dependency a ver si sirve-->
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-validation</artifactId>
                 </dependency>
-                <dependency> 
+                <dependency> <!-- Aquì empieza ppt 4-->
                     <groupId>com.google.firebase</groupId>
                     <artifactId>firebase-admin</artifactId>
                     <version>9.5.0</version>
+                </dependency> <!-- Aquí termina ppt4-->
+                <dependency>
+                    <groupId>com.google.auth</groupId>
+                    <artifactId>google-auth-library-oauth2-http</artifactId>
+                    <version>1.35.0</version>
+                    <type>jar</type>
                 </dependency>
-	 <dependency>
-	  <groupId>com.google.auth</groupId>
-	  <artifactId>google-auth-library-oauth2-http</artifactId>
-	  <version>1.35.0</version>
-	  <type>jar</type>
-	 </dependency>
-	 <dependency>
-	  <groupId>eu.eureka-bpo.log4j2</groupId>
-	  <artifactId>gmail-appender</artifactId>
-	  <version>1.2.0</version>
-	  <type>jar</type>
-	 </dependency>
+                 <dependency>
+                    <groupId>org.hibernate.validator</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                    <scope>runtime</scope>
+                 </dependency>
 	</dependencies>
 
 	<build>
@@ -147,3 +146,4 @@
 	</build>
 
 </project>
+

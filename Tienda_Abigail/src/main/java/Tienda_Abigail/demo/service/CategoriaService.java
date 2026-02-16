@@ -38,14 +38,14 @@ public class CategoriaService {
     }
 
     @Autowired
-    private FirebaseStorageService firebaseStorageService;
+    private FireBaseStorageService fireBaseStorageService;
 
     @Transactional
     public void save(Categoria categoria, MultipartFile imagenFile) {
         categoria = categoriaRepository.save(categoria);
         if (!imagenFile.isEmpty()) { //Si no está vacío... pasaron una imagen...            
             try {
-                String rutaImagen = firebaseStorageService.uploadImage(
+                String rutaImagen = fireBaseStorageService.uploadImage(
                         imagenFile, "categoria",
                         categoria.getIdCategoria());
                 categoria.setRutaImagen(rutaImagen);

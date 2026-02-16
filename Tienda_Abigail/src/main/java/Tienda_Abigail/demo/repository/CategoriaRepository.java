@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Tienda_Abigail.demo.repository;
-import Tienda_Abigail.demo.domain.Categoria;
+import Tienda_Abigail.demo.domain.Producto;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 /**
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author abita
  */
 
-public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
-    public List<Categoria> findByActivoTrue();
+public interface ProductoRepository extends JpaRepository<Producto, Integer>{
+    public List<Producto> findByActivoTrue();
     
 }

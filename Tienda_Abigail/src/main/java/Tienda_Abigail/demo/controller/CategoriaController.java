@@ -5,6 +5,7 @@ import Tienda_Abigail.demo.domain.Categoria; // Lo añadi semana 4
 import Tienda_Abigail.demo.service.CategoriaService;
 import jakarta.validation.Valid; // Lo añadi semana 4
 import java.util.Locale; // Lo añadi semana 4
+import java.util.Optional; // Lo añadi semana 4
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource; // Lo añadi semana 4
 import org.springframework.stereotype.Controller;

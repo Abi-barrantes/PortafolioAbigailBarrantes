@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"      
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      xmlns:th="http://www.thymeleaf.org"> 
     <head th:fragment="head">
         <title>TechShop</title>
         <meta charset="UTF-8"/>
@@ -14,7 +13,6 @@
 <!---Tuve que quitar 2 links para que me sirviera, quite el de popper y el de jquerry--->
        
     </head>
-    <body>
         <header th:fragment="header" class="header">
             <nav class="navbar navbar-expand-sm p-0">
                 <div class="container">                    
@@ -83,7 +81,7 @@
         </header>
 
         <footer th:fragment="footer" class="p-2 mt-5 bg-info text-white">
-            <p class="lead text-center">[[#{plantilla.derechos}]] &COPY;</p>
+            <p class="lead text-center">[[#{plantilla.derechos}]] &copy;</p>
         </footer>
         <section th:fragment="mostrarToast">
             <div aria-live="polite" aria-atomic="true" 
@@ -122,5 +120,4 @@
                 </div>
             </div>
         </section>
-    </body>
 </html>

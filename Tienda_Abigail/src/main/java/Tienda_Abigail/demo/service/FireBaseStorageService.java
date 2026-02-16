@@ -18,9 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author abita
  */
-public class FireBaseStorageService {
 @Service
-public class FirebaseStorageService {
+public class FireBaseStorageService {
     @Value("${firebase.bucket.name}")
     private String bucketName;
     @Value("${firebase.storage.path}")
@@ -28,7 +27,7 @@ public class FirebaseStorageService {
     // Aquí se manejaría la inyección del cliente de Storage como un bean
     private final Storage storage;
 
-    public FirebaseStorageService(Storage storage) {
+    public FireBaseStorageService(Storage storage) {
         this.storage = storage;
     }
 
