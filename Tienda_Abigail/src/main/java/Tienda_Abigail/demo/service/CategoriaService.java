@@ -21,7 +21,8 @@ import org.springframework.web.multipart.MultipartFile; //lo añadi en semana 4
 
 @Service
 public class CategoriaService {
-     // Permite crear una única instancia de CategoriaRepository, y la crea automáticamente
+
+    // Permite crear una única instancia de CategoriaRepository, y la crea automáticamente
     @Autowired
     private CategoriaRepository categoriaRepository;
 
@@ -32,26 +33,26 @@ public class CategoriaService {
         }
         return categoriaRepository.findAll();
     }
+
     @Transactional(readOnly = true)
     public Optional<Categoria> getCategoria(Integer idCategoria) {
         return categoriaRepository.findById(idCategoria);
     }
 
     @Autowired
-    private FireBaseStorageService fireBaseStorageService;
+    private FireBaseStorageService firebaseStorageService;
 
     @Transactional
     public void save(Categoria categoria, MultipartFile imagenFile) {
         categoria = categoriaRepository.save(categoria);
-        if (!imagenFile.isEmpty()) { //Si no está vacío... pasaron una imagen...            
+        if (!imagenFile.isEmpty()) { // Si no está vacío... pasaron una imagen...
             try {
-                String rutaImagen = fireBaseStorageService.uploadImage(
+                String rutaImagen = firebaseStorageService.uploadImage(
                         imagenFile, "categoria",
                         categoria.getIdCategoria());
                 categoria.setRutaImagen(rutaImagen);
                 categoriaRepository.save(categoria);
             } catch (IOException e) {
-
             }
         }
     }
@@ -67,7 +68,8 @@ public class CategoriaService {
             categoriaRepository.deleteById(idCategoria);
         } catch (DataIntegrityViolationException e) {
             // Lanza una nueva excepción para encapsular el problema de integridad de datos
-            throw new IllegalStateException("No se puede eliminar la categoria. Tiene datos asociados.", e);
+            throw new IllegalStateException("No se puede eliminar la categoría. Tiene datos asociados.", e);
         }
     }
+
 }

@@ -22,12 +22,6 @@ aside {
     bottom: 20px;
     padding: 10px;
 }
-
-.logo-img {
-    height: 70px;
-    width: auto;
-}
-
 section {
     position: fixed;  
     background-color: #dd8295;
@@ -88,7 +82,3 @@ nav {
 .menu-item:hover {
     background-color: black;
 }
-
-
-
-
