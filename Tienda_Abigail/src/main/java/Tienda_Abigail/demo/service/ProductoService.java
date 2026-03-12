@@ -15,9 +15,6 @@ import java.io.IOException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.dao.DataIntegrityViolationException;
 
-
-
-
 @Service
 public class ProductoService {
 
@@ -70,5 +67,19 @@ public class ProductoService {
             throw new IllegalStateException("No se puede eliminar la categoría. Tiene datos asociados.", e);
         }
     }
-
+    @Transactional(readOnly = true)
+    public List<Producto> consultaDerivada(double precioInf, double precioSup) {
+        return ProductoRepository.findByPrecioBetweenOrderByPrecioAsc(precioInf, precioSup);
+    
+    }
+    @Transactional(readOnly = true)
+    public List<Producto> consultaJPQL(double precioInf, double precioSup) {
+        return ProductoRepository.consultaJPQL(precioInf, precioSup);
+    }
+    @Transactional(readOnly = true)
+    public List<Producto> consultaSQL(double precioInf, double precioSup) {
+        return ProductoRepository.consultaSQL(precioInf, precioSup);
+    }
+    
 }
+    
