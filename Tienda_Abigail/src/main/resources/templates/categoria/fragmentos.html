@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-    <head th:replace="~{general/plantilla :: head}"/>
-
+    <head th:replace="~{general/plantilla :: head}">
+       
+    </head>
     <body>
         <!-- fragmento 1 para Agregar categoria en ventana modal -->
         <section th:fragment="agregar">
@@ -182,6 +183,20 @@
                                 </button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fragmento para mostrar Toast, tuve que meterlo a ver si me sirve -->
+        <section th:fragment="mostrarToast">
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="liveToast" class="toast" role="alert">
+                    <div class="toast-header">
+                        <strong class="me-auto">Notificación</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        Operación realizada correctamente.
                     </div>
                 </div>
             </div>

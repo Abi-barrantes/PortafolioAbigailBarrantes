@@ -6,14 +6,14 @@ package Tienda_Abigail.demo.service;
 
 import Tienda_Abigail.demo.domain.Categoria;
 import Tienda_Abigail.demo.repository.CategoriaRepository;
-import java.io.IOException; 
+import java.io.IOException; //lo añadi en semana 4 
 import java.util.List;
-import java.util.Optional; 
+import java.util.Optional; //lo añadi en semana 4 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException; //lo añadi en semana 4 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile; //lo añadi en semana 4 
+import org.springframework.web.multipart.MultipartFile; //lo añadi en semana 4
 /**
  *
  * @author abita
@@ -21,8 +21,7 @@ import org.springframework.web.multipart.MultipartFile; //lo añadi en semana 4
 
 @Service
 public class CategoriaService {
-
-    // Permite crear una única instancia de CategoriaRepository, y la crea automáticamente
+     // Permite crear una única instancia de CategoriaRepository, y la crea automáticamente
     @Autowired
     private CategoriaRepository categoriaRepository;
 
@@ -33,7 +32,6 @@ public class CategoriaService {
         }
         return categoriaRepository.findAll();
     }
-
     @Transactional(readOnly = true)
     public Optional<Categoria> getCategoria(Integer idCategoria) {
         return categoriaRepository.findById(idCategoria);
@@ -45,7 +43,7 @@ public class CategoriaService {
     @Transactional
     public void save(Categoria categoria, MultipartFile imagenFile) {
         categoria = categoriaRepository.save(categoria);
-        if (!imagenFile.isEmpty()) { // Si no está vacío... pasaron una imagen...
+        if (!imagenFile.isEmpty()) { //Si no está vacío... pasaron una imagen...            
             try {
                 String rutaImagen = firebaseStorageService.uploadImage(
                         imagenFile, "categoria",
@@ -53,6 +51,7 @@ public class CategoriaService {
                 categoria.setRutaImagen(rutaImagen);
                 categoriaRepository.save(categoria);
             } catch (IOException e) {
+
             }
         }
     }
@@ -68,8 +67,7 @@ public class CategoriaService {
             categoriaRepository.deleteById(idCategoria);
         } catch (DataIntegrityViolationException e) {
             // Lanza una nueva excepción para encapsular el problema de integridad de datos
-            throw new IllegalStateException("No se puede eliminar la categoría. Tiene datos asociados.", e);
+            throw new IllegalStateException("No se puede eliminar la categoria. Tiene datos asociados.", e);
         }
     }
-
 }
