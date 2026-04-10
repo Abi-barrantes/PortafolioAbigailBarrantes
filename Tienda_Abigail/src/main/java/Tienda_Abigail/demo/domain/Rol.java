@@ -17,7 +17,7 @@ public class Rol implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType. IDENTITY)
-    @Column (name = "id rol")
+    @Column (name = "id_rol")
     private Integer idRol;
     @Column (name = "rol", unique = true, length = 25)
     private String rol;

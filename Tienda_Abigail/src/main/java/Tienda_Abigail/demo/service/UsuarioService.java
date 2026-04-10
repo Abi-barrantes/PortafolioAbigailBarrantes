@@ -22,7 +22,7 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final RolRepository rolRepository;
-    private final FireBaseStorageService firebaseStorageService;
+    private final FireBaseStorageService FireBaseStorageService;
     private final PasswordEncoder passwordEncoder;
 
     public UsuarioService(UsuarioRepository usuarioRepository,
@@ -31,7 +31,7 @@ public class UsuarioService {
             PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.rolRepository = rolRepository;
-        this.firebaseStorageService = firebaseStorageService;
+        this.FireBaseStorageService = firebaseStorageService;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -112,7 +112,7 @@ public class UsuarioService {
         usuario = usuarioRepository.save(usuario);
         if (imagenFile != null && !imagenFile.isEmpty()) { //Si no está vacío... pasaron una imagen...            
             try {
-                String rutaImagen = firebaseStorageService.uploadImage(imagenFile, "usuario", (Integer) usuario.getIdUsuario());
+                String rutaImagen = FireBaseStorageService.uploadImage(imagenFile, "usuario", (Integer) usuario.getIdUsuario());
                 usuario.setRutaImagen(rutaImagen);
                 usuarioRepository.save(usuario);
             } catch (IOException e) {
@@ -155,5 +155,13 @@ public class UsuarioService {
         Rol rol = rolOpt.get();
         usuario.getRoles().add(rol);
         return usuarioRepository.save(usuario);
+    }
+
+    public List<String> getRolesNombres() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void eliminarRol(String username, Integer idRol) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
