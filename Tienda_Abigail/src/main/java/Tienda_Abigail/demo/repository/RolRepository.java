@@ -4,10 +4,11 @@
  */
 package Tienda_Abigail.demo.repository;
 
-/**
- *
- * @author abita
- */
-public class RolRepository {
-    
+import Tienda_Abigail.demo.domain.Rol;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+public interface RolRepository extends JpaRepository<Rol, Integer> {
+
+    public Optional <Rol> findByRol(String rol);
 }
